@@ -1,0 +1,76 @@
+#root {
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.chat-view {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background: linear-gradient(135deg, #f7947255 25%, transparent 25%) -23px 0/
+      46px 46px,
+    linear-gradient(225deg, #f79472 25%, transparent 25%) -23px 0/ 46px 46px,
+    linear-gradient(315deg, #f7947255 25%, transparent 25%) 0px 0/ 46px 46px,
+    linear-gradient(45deg, #f79472 25%, #e5e5f7 25%) 0px 0/ 46px 46px;
+}
+
+.chat-view .messages-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  overflow-y: scroll;
+  bottom: 0;
+  height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+  padding-bottom: 10px;
+}
+
+.chats-view {
+  height: auto;
+  min-width: 480px;
+  min-height: 100vh;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

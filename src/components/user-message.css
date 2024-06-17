@@ -1,0 +1,8 @@
+.user-message-box {
+  justify-content: end;
+}
+
+.user-message {
+  background-color: rgba(186, 180, 228, 0.4);
+  margin-left: 20%;
+}
