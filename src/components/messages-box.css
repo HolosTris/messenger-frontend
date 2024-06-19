@@ -1,0 +1,12 @@
+.messages-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  overflow-y: scroll;
+  top: 100px;
+  bottom: 80px;
+  /* height: 100%; */
+  width: 100%;
+  padding: 0 10px;
+}

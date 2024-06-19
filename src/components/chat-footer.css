@@ -1,0 +1,44 @@
+.chat-footer {
+  position: absolute;
+  bottom: 0;
+  min-height: 70px;
+  width: 100%;
+  /* padding: 10px;
+  padding-top: 0; */
+}
+
+.chat-footer > * {
+  position: absolute;
+  bottom: 10px;
+
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.new-message {
+  left: 80px;
+  right: 80px;
+}
+
+.chat-footer button {
+  height: 60px;
+  width: 60px;
+}
+.chat-footer button:focus {
+  fill: #f79472;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.emoji-button {
+  left: 10px;
+  background-image: url("/emoji.svg");
+}
+
+.send-button {
+  right: 10px;
+  background-image: url("/send_active.svg");
+}
+.send-button:disabled {
+  background-image: url("/send.svg");
+}

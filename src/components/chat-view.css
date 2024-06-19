@@ -1,0 +1,14 @@
+.chat-view {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background: linear-gradient(135deg, #f0b48f55 25%, transparent 25%) -23px 0/
+      46px 46px,
+    linear-gradient(225deg, #f0b48f 25%, transparent 25%) -23px 0/ 46px 46px,
+    linear-gradient(315deg, #f0b48f55 25%, transparent 25%) 0px 0/ 46px 46px,
+    linear-gradient(45deg, #f0b48f 25%, #e5e5f7 25%) 0px 0/ 46px 46px;
+}
