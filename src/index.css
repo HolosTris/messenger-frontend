@@ -64,16 +64,25 @@ h1 {
   line-height: 1.1;
 }
 
-input[type="text"] {
+input[type="text"],
+textarea,
+.input {
   border: none;
-  padding: 15px 25px;
-  border-radius: 999px;
+  padding: 10px 25px;
+  border-radius: 30px;
 
+  line-height: inherit;
   font-family: inherit;
   font-size: inherit;
 }
-input[type="text"]:focus {
+input[type="text"]:focus,
+textarea:focus,
+.input:focus {
   outline: none;
+}
+
+textarea {
+  resize: none;
 }
 
 /* button {

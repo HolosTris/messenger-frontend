@@ -1,4 +1,4 @@
-import { User } from "../App";
+import { User } from "../types";
 import { Button } from "./button";
 import "./chat-header.css";
 

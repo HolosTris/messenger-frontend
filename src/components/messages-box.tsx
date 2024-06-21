@@ -1,42 +1,21 @@
-import { UserMessage } from "./user-message";
-import { Message } from "./message";
+import { UserMessageItem } from "./user-message-item";
+import { MessageItem } from "./message-item";
 import { useContext, useEffect, useRef, useState } from "react";
-import { AuthContext, User } from "../App";
+import { AuthContext } from "../App";
 import "./messages-box.css";
+import { Message, User } from "../types";
+import { generateMessages } from "../utils";
 
 interface MessageBoxProps {
   user: User;
 }
 
-interface Message {
-  id?: number;
-  user: User;
-  text: string;
-  deliveryTime: number;
-  isRead: boolean;
-}
-
 export const MessageBox = ({ user }: MessageBoxProps) => {
   const auth = useContext(AuthContext);
 
-  const [messages, setMessages] = useState<Message[]>([]);
-
-  for (let i = 0; i < 10; i++) {
-    messages[i] = {
-      id: i,
-      user: user,
-      text: "Это длинное сообщение, призванное показать сообщения в несколько строк.",
-      deliveryTime: Date.now() + i * 10 * 60 * 1000,
-      isRead: true,
-    };
-  } // for test purposes
-
-  messages.push({
-    user: auth.user,
-    text: "Hello, World",
-    deliveryTime: Date.now(),
-    isRead: true,
-  });
+  const [messages, setMessages] = useState<Message[]>(
+    generateMessages(user, auth.user)
+  );
 
   setInterval(() => {
     // setMessages([
@@ -69,10 +48,10 @@ export const MessageBox = ({ user }: MessageBoxProps) => {
   return (
     <div className="messages-box">
       {messages.map((message) =>
-        message.user.id == auth.user.id ? (
-          <UserMessage key={message.id} {...message} />
+        message.from.id == auth.user.id ? (
+          <UserMessageItem key={message.id} {...message} />
         ) : (
-          <Message key={message.id} {...message} />
+          <MessageItem key={message.id} {...message} />
         )
       )}
       <div ref={messagesEndRef} />

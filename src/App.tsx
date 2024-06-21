@@ -1,42 +1,36 @@
 import { createContext, useEffect, useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { MessageBox } from "./components/messages-box";
 import { ChatView } from "./components/chat-view";
+import { SideView } from "./components/side-view";
+import { Auth, Chat, User } from "./types";
+import { generateUser } from "./utils";
 
-export interface User {
-  id: number;
-  username: string;
-  name: string;
-  bio: string;
-  srcPic: string;
-}
-
-interface Auth {
-  date: number;
-  user: User;
-}
-
-const me: User = {
-  id: 0,
-  username: "Holos_Tris",
-  name: "Трисей Александрин",
-  bio: "I am that I am. And something else just to check.",
-  srcPic: "/image.png",
-}; //temporarly
+const me: User = generateUser(0);
 
 const defaultAuth: Auth = { date: Date.now(), user: me };
+const noneChat: Chat = {
+  id: 0,
+  type: "none",
+  members: [],
+  messages: [],
+  name: "none",
+  srcPic: "none",
+};
 
 export const AuthContext = createContext<Auth>(defaultAuth);
+export const ChatContext = createContext<Chat>(noneChat);
 
 function App() {
   const [auth, setAuth] = useState<Auth>(defaultAuth);
+  const [chat, setChat] = useState<Chat>(noneChat);
 
   return (
     <AuthContext.Provider value={auth}>
-      <aside className="chats-view flex min-h-screen flex-col items-center justify-between p-24 text-2xl"></aside>
-      <ChatView />
+      <ChatContext.Provider value={chat}>
+        <SideView />
+        <ChatView />
+      </ChatContext.Provider>
     </AuthContext.Provider>
   );
 }

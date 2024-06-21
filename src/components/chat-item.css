@@ -1,0 +1,49 @@
+.chat {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+.chat:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.chat > * {
+  position: absolute;
+}
+
+.chat-pic {
+  border-radius: 999px;
+  top: 10px;
+  left: 10px;
+}
+
+.chat-name {
+  top: 16px;
+  left: 100px;
+
+  color: black;
+}
+
+.chat > p {
+  top: 55px;
+  left: 100px;
+  right: 40px;
+
+  color: var(--gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.time {
+  top: 16px;
+  right: 10px;
+
+  color: var(--gray);
+}
+
+.check {
+  top: 55px;
+  right: 10px;
+}

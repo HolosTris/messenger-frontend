@@ -1,16 +1,11 @@
-import { User } from "../App";
+import { User } from "../types";
+import { generateUser } from "../utils";
 import { ChatFooter } from "./chat-footer";
 import { ChatHeader } from "./chat-header";
 import "./chat-view.css";
 import { MessageBox } from "./messages-box";
 
-const user: User = {
-  id: 1,
-  username: "mikunak",
-  name: "Гуго Де Пейн",
-  bio: "Матрица даёт о себе знать",
-  srcPic: "/image.png",
-};
+const user: User = generateUser(1);
 
 export const ChatView = () => {
   return (
