@@ -13,7 +13,7 @@ export const SideHeader = () => {
           placeholder="Поиск"
         />
       </div>
-      <Button className="new-chat-button" disabled={true}></Button>
+      <Button className="new-chat-button"></Button>
     </div>
   );
 };

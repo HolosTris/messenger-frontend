@@ -27,3 +27,7 @@ export interface Auth {
   date: number;
   user: User;
 }
+
+export interface AppState {
+  curChatId: number;
+}

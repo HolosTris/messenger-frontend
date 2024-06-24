@@ -25,10 +25,10 @@
   height: 40px;
   width: 40px;
 }
-.search-con:focus-within::before {
+.search-con:focus-within::before,
+.search-con:hover::before {
   content: url("/search_active.svg");
 }
-
 input[type="text"].search {
   width: 100%;
   padding-left: 55px;

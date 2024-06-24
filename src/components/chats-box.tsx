@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ChatItem } from "./chat-item";
 import "./chats-box.css";
 import { Chat } from "../types";
-import { generateChat } from "../utils";
+import { generateChats } from "../utils";
+import { ChatsContext } from "../App";
 
 export const ChatsBox = () => {
-  const [chats, setChats] = useState<Chat[]>([generateChat()]);
+  const { chats } = useContext(ChatsContext);
 
   return (
     <div className="chats-box">
-      {chats.map((chat) => (
+      {chats.map((chat: Chat) => (
         <ChatItem key={chat.id} {...chat} />
       ))}
     </div>

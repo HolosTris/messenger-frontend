@@ -7,15 +7,15 @@ import { Message, User } from "../types";
 import { generateMessages } from "../utils";
 
 interface MessageBoxProps {
-  user: User;
+  messages: Message[];
 }
 
-export const MessageBox = ({ user }: MessageBoxProps) => {
+export const MessageBox = ({ messages }: MessageBoxProps) => {
   const auth = useContext(AuthContext);
 
-  const [messages, setMessages] = useState<Message[]>(
-    generateMessages(user, auth.user)
-  );
+  // const [messages, setMessages] = useState<Message[]>(
+  //   generateMessages(user, auth.user)
+  // );
 
   setInterval(() => {
     // setMessages([
@@ -39,11 +39,13 @@ export const MessageBox = ({ user }: MessageBoxProps) => {
 
   useEffect(() => {
     scrollToBottom(false);
-  }, []);
-
-  useEffect(() => {
-    scrollToBottom();
+    console.log("instant boy");
   }, [messages]);
+
+  // useEffect(() => {
+  //   scrollToBottom();
+  //   console.log("smooth boy");
+  // }, [messages]);
 
   return (
     <div className="messages-box">

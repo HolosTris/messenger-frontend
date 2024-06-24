@@ -14,23 +14,31 @@
   left: 70px;
   right: 70px;
 }
+.profile-info:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
 
 .profile-info img {
   top: 10px;
-  left: 0;
+  left: 10px;
   border-radius: 999px;
 }
 
 .profile-info .name {
   top: 16px;
-  left: 90px;
+  left: 100px;
   color: black;
 }
 
 .profile-info .bio {
   top: 55px;
-  left: 90px;
+  left: 100px;
+  right: 0;
   color: var(--gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .back-button {

@@ -3,34 +3,39 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { ChatView } from "./components/chat-view";
 import { SideView } from "./components/side-view";
-import { Auth, Chat, User } from "./types";
-import { generateUser } from "./utils";
+import { AppState, Auth, Chat, User } from "./types";
+import { generateChats, generateUser } from "./utils";
+import { Outlet } from "react-router-dom";
 
 const me: User = generateUser(0);
 
 const defaultAuth: Auth = { date: Date.now(), user: me };
-const noneChat: Chat = {
-  id: 0,
-  type: "none",
-  members: [],
-  messages: [],
-  name: "none",
-  srcPic: "none",
-};
+const noneChats: Chat[] = [];
+const defaultAppState: AppState = { curChatId: 0 };
 
 export const AuthContext = createContext<Auth>(defaultAuth);
-export const ChatContext = createContext<Chat>(noneChat);
+export const ChatsContext = createContext({
+  chats: noneChats,
+  setChats: (chats: Chat[]) => {},
+});
+export const AppStateContext = createContext({
+  appState: defaultAppState,
+  setAppState: (appState: AppState) => {},
+});
 
 function App() {
   const [auth, setAuth] = useState<Auth>(defaultAuth);
-  const [chat, setChat] = useState<Chat>(noneChat);
+  const [chats, setChats] = useState<Chat[]>(generateChats(9));
+  const [appState, setAppState] = useState<AppState>(defaultAppState);
 
   return (
     <AuthContext.Provider value={auth}>
-      <ChatContext.Provider value={chat}>
-        <SideView />
-        <ChatView />
-      </ChatContext.Provider>
+      <ChatsContext.Provider value={{ chats, setChats }}>
+        <AppStateContext.Provider value={{ appState, setAppState }}>
+          <SideView />
+          <Outlet />
+        </AppStateContext.Provider>
+      </ChatsContext.Provider>
     </AuthContext.Provider>
   );
 }

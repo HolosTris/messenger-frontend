@@ -117,11 +117,16 @@ button {
   transition: box-shadow 0.25s;
 }
 button:hover {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25); */
+  opacity: 60%;
   border: none;
 }
 button:focus {
   background-color: #eee;
+}
+button:disabled {
+  cursor: auto;
+  opacity: 100%;
 }
 
 @media (prefers-color-scheme: light) {

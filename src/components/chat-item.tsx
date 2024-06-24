@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 import { Message, User } from "../types";
 import { convertTimestampToTimeString } from "../utils";
 import "./chat-item.css";
+import { useContext } from "react";
+import { AppStateContext, ChatsContext } from "../App";
 
 interface ChatItemProps {
   id: number;
@@ -12,6 +15,7 @@ interface ChatItemProps {
 }
 
 export const ChatItem = ({
+  id,
   type,
   members,
   messages,
@@ -21,8 +25,14 @@ export const ChatItem = ({
   const lastMessage = messages[messages.length - 1];
   const timeString = convertTimestampToTimeString(lastMessage.date);
 
+  const { appState, setAppState } = useContext(AppStateContext);
+
   return (
-    <div className="chat">
+    // <Link to={`${id}`}>
+    <div
+      className="chat"
+      onClick={() => setAppState({ ...appState, curChatId: id })}
+    >
       <img
         className="chat-pic"
         src={type == "dialogue" ? members[1].srcPic : srcPic}
@@ -45,5 +55,6 @@ export const ChatItem = ({
         width={30}
       />
     </div>
+    // </Link>
   );
 };
