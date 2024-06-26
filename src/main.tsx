@@ -9,6 +9,8 @@ import { NullChat } from "./components/null-chat.tsx";
 import { ChatHeader } from "./components/chat-header.tsx";
 import { MessageBox } from "./components/messages-box.tsx";
 import { ChatFooter } from "./components/chat-footer.tsx";
+import { SideView } from "./components/side-view.tsx";
+import { AuthView } from "./components/auth-view.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +20,21 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <ChatView />,
+        element: (
+          <>
+            <SideView />
+            <ChatView />
+          </>
+        ),
       },
       {
-        path: ":chatId",
-        element: <ChatView />,
+        path: "auth",
+        element: <AuthView />,
       },
+      // {
+      //   path: ":chatId",
+      //   element: <ChatView />,
+      // },
     ],
   },
 ]);

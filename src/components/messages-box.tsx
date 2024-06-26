@@ -11,7 +11,7 @@ interface MessageBoxProps {
 }
 
 export const MessageBox = ({ messages }: MessageBoxProps) => {
-  const auth = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   // const [messages, setMessages] = useState<Message[]>(
   //   generateMessages(user, auth.user)

@@ -1,0 +1,42 @@
+.profile-settings {
+  border-top: 18px solid #eee;
+}
+
+.profile-settings > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  border-bottom: 2px solid #eee;
+}
+
+.profile-settings span {
+  position: relative;
+  padding-left: 50px;
+
+  line-height: 40px;
+}
+
+.profile-settings span::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+}
+
+.notifications span::before {
+  content: url("/bell.svg");
+}
+
+.only-friends span::before {
+  content: url("/group.svg");
+}
+
+.log-out {
+  color: #f79472;
+}
+
+.log-out span::before {
+  content: url("/exit.svg");
+}

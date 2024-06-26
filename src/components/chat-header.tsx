@@ -14,15 +14,18 @@ export const ChatHeader = ({ user }: ChatHeaderProps) => {
   return (
     <div className="chat-header">
       <Button
-        className="back-button"
+        className="back-btn"
         onClick={() => setAppState({ ...appState, curChatId: 0 })}
       ></Button>
-      <div className="profile-info">
+      <div
+        className="profile-info"
+        onClick={() => setAppState({ ...appState, profileUser: user })}
+      >
         <img src={user.srcPic} height={80} width={80} />
         <span className="name">{user.name}</span>
         <span className="bio semilight">{user.bio}</span>
       </div>
-      <Button className="more-button"></Button>
+      <Button className="more-btn"></Button>
     </div>
   );
 };

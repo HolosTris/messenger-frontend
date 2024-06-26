@@ -30,7 +30,9 @@ export const ChatItem = ({
   return (
     // <Link to={`${id}`}>
     <div
-      className="chat"
+      className={
+        "chat clickable-div " + (appState.curChatId == id ? "chosen" : "")
+      }
       onClick={() => setAppState({ ...appState, curChatId: id })}
     >
       <img

@@ -4,7 +4,7 @@ import "./chat-footer.css";
 import { Message } from "../types";
 
 interface ChatFooterProps {
-  sendMessage: (message: string) => {};
+  sendMessage: (message: string) => void;
 }
 
 export const ChatFooter = ({ sendMessage }: ChatFooterProps) => {

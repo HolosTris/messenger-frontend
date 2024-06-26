@@ -3,6 +3,8 @@
   height: 100px;
   width: 100%;
   background-color: white;
+
+  border-left: 2px solid #eee;
 }
 
 .chat-header * {
@@ -41,14 +43,12 @@
   text-overflow: ellipsis;
 }
 
-.back-button {
+.chat-header .back-btn {
   top: 25px;
   left: 10px;
-  background-image: url("/back.svg");
 }
 
-.more-button {
+.chat-header .more-btn {
   top: 25px;
   right: 10px;
-  background-image: url("/more.svg");
 }

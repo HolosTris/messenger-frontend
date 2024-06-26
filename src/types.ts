@@ -2,7 +2,8 @@ export interface User {
   id: number;
   username: string;
   name: string;
-  bio: string;
+  bio?: string;
+  birthdate?: Date;
   srcPic: string;
 }
 
@@ -25,9 +26,10 @@ export interface Chat {
 
 export interface Auth {
   date: number;
-  user: User;
+  user?: User;
 }
 
 export interface AppState {
   curChatId: number;
+  profileUser?: User;
 }

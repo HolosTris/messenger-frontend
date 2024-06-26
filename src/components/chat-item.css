@@ -3,9 +3,9 @@
   width: 100%;
   min-height: 100px;
 }
-.chat:hover {
-  background-color: #eee;
-  cursor: pointer;
+
+.chat.chosen {
+  background-color: rgba(247, 148, 114, 0.25);
 }
 
 .chat > * {

@@ -1,10 +1,14 @@
 import { Button } from "./button";
 import "./side-header.css";
 
-export const SideHeader = () => {
+interface SideHeaderProps {
+  openProfile: () => void;
+}
+
+export const SideHeader = ({ openProfile }: SideHeaderProps) => {
   return (
     <div className="side-header">
-      <Button className="profile-button"></Button>
+      <Button className="profile-button" onClick={() => openProfile()}></Button>
       <div className="search-con">
         <input
           className="search"

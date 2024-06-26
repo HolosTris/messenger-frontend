@@ -47,26 +47,28 @@ export function generateMessages(firstUser: User, secondUser: User): Message[] {
 export function generateUser(id: number): User {
   let user: User;
 
-  if (id == 0)
+  if (id == 1)
     user = {
-      id: 0,
+      id: 1,
       username: "Holos_Tris",
       name: "Трисей Александрин",
       bio: "I am that I am. And something else just to check.",
-      srcPic: "/image.png",
+      birthdate: new Date("03.10.2000"),
+      srcPic: "/holos.jpg",
     };
   //temporarly
-  else if (id == 1)
-    user = {
-      id: 1,
-      username: "mikunak",
-      name: "Гуго Де Пейн",
-      bio: "Матрица даёт о себе знать",
-      srcPic: "/image.png",
-    };
   else if (id == 2)
     user = {
       id: 2,
+      username: "mikunak",
+      name: "Гуго Де Пейн",
+      bio: "Матрица даёт о себе знать",
+      birthdate: new Date("02.05.2002"),
+      srcPic: "/image.png",
+    };
+  else if (id == 3)
+    user = {
+      id: 3,
       username: "v1lezz",
       name: "Вылезз",
       bio: "Лень чекать био Андрея",
@@ -85,7 +87,7 @@ export function generateUser(id: number): User {
 }
 
 export function generateChats(num: number): Chat[] {
-  const users = [generateUser(0), generateUser(1), generateUser(2)];
+  const users = [generateUser(1), generateUser(2), generateUser(3)];
 
   const chats: Chat[] = [
     {
@@ -107,7 +109,7 @@ export function generateChats(num: number): Chat[] {
   ];
 
   for (let i = 3; i <= num; i++) {
-    users.push(generateUser(i));
+    users.push(generateUser(i + 1));
     chats.push({
       id: i,
       type: "dialogue",

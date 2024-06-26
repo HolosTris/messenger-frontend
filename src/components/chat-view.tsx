@@ -9,10 +9,10 @@ import { NullChat } from "./null-chat";
 import { useContext } from "react";
 import { AppStateContext, AuthContext, ChatsContext } from "../App";
 
-//const user: User = generateUser(1);
-
 export const ChatView = () => {
-  const { user } = useContext(AuthContext);
+  const {
+    auth: { user },
+  } = useContext(AuthContext);
   const { appState } = useContext(AppStateContext);
   const { chats, setChats } = useContext(ChatsContext);
 

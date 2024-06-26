@@ -6,18 +6,24 @@ import { SideView } from "./components/side-view";
 import { AppState, Auth, Chat, User } from "./types";
 import { generateChats, generateUser } from "./utils";
 import { Outlet } from "react-router-dom";
+import { AuthView } from "./components/auth-view";
 
-const me: User = generateUser(0);
+const me: User = generateUser(1);
 
 const defaultAuth: Auth = { date: Date.now(), user: me };
 const noneChats: Chat[] = [];
 const defaultAppState: AppState = { curChatId: 0 };
 
-export const AuthContext = createContext<Auth>(defaultAuth);
+export const AuthContext = createContext({
+  auth: defaultAuth,
+  setAuth: (auth: Auth) => {},
+});
+
 export const ChatsContext = createContext({
   chats: noneChats,
   setChats: (chats: Chat[]) => {},
 });
+
 export const AppStateContext = createContext({
   appState: defaultAppState,
   setAppState: (appState: AppState) => {},
@@ -29,11 +35,19 @@ function App() {
   const [appState, setAppState] = useState<AppState>(defaultAppState);
 
   return (
-    <AuthContext.Provider value={auth}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
       <ChatsContext.Provider value={{ chats, setChats }}>
         <AppStateContext.Provider value={{ appState, setAppState }}>
-          <SideView />
-          <Outlet />
+          {auth.user ? (
+            <>
+              <SideView />
+              <ChatView />
+            </>
+          ) : (
+            <AuthView />
+          )}
+
+          {/* <Outlet /> */}
         </AppStateContext.Provider>
       </ChatsContext.Provider>
     </AuthContext.Provider>
